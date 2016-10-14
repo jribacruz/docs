@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.3.2" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.2 http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.2.xsd">
+	
+	<!-- USUARIO PAGE -->
+	<url-mapping id="usuario-page">
+		<pattern value="/usuarios"></pattern>
+		<view-id value="/view/usuarioPage/index.jsf" />
+		<action>#{usuarioPG.load}</action>
+	</url-mapping>
+	
+	<!-- GERECIAMENTO DEPARTAMENTO PAGE -->
+	<url-mapping id="departament-mngt-page">
+		<pattern value="/gereciamento/departamento"></pattern>
+		<view-id value="/view/departamentoMngtPage/index.jsf" />
+		<action>#{departamentoMngtPG.load}</action>
+	</url-mapping>
+
+</pretty-config>

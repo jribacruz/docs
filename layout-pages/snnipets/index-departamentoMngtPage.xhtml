@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
+
+
+	<!-- CENTER TOOLBAR LEFT -->
+	<ui:define name="center.toolbar.left">
+	</ui:define>
+
+	<!-- CENTER TOOLBAR RIGHT -->
+	<ui:define name="center.toolbar.right">
+	</ui:define>
+
+	<!-- CENTER BODY -->
+	<ui:define name="center.body">
+		<ui:include src="/view/departamentoMngtPage/departamentoMngtList.xhtml" />
+	</ui:define>
+
+	<!-- DOCUMENT BODY -->
+	<ui:define name="document.body">
+		<ui:include src="/view/departamentoMngtPage/departamentoMngtEditDialog.xhtml" />
+	</ui:define>
+
+</ui:composition>
