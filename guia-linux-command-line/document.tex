@@ -1,14 +1,21 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,8pt]{extarticle}
 \usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
 \usepackage{geometry}
 \geometry{margin=.5in}
+
+\usepackage{multicol}
+
 
 %%Cria os índices
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,allcolors=blue}
 \usepackage{hypcap} 
+
+\usepackage{listings}
+\usepackage{courier}
 
 \begin{document}
 \title{Guia Linux - Linha de Comando}
@@ -16,6 +23,9 @@
 \maketitle
 \tableofcontents
 
+
+
+\begin{multicols}{2}
 %%
 \section{Gerenciamento de Pacotes}
 \subsection{Configurando proxy}
@@ -38,13 +48,29 @@
 \subsection{Copiando arquivos}
 \subsubsection{Mesmo host}
 \subsubsection{Entre hosts diferentes}
-\subsection{Movendo arquivos}
+\subsection{Movendo arquivos} 
+	
+
+   \texttt{\$ mv /DIR/ORIGEM/ARQUIVO /DIR/DESTINO}
+
+\subsection{Renomeando arquivo}
+
+\begin{lstlisting}[language=bash]
+  $ mv /DIR/ORIGEM/ARQUIVO /DIR/DESTINO/NOVO_ARQUIVO
+\end{lstlisting}
+
 \subsection{Exibindo espaço utilizado em diretório}
 \subsection{Alterando proprietário de arquivo}
 \subsection{Alterando permissões de arquivo}
 \subsection{Busca de arquivo em diretório}
 \subsection{Verificando o charset de arquivo}
 \subsection{Calculando o hash (MD5) de um arquivo}
+Uma forma simples de verificar ou garantir a integridade de um arquivo é
+calculando o seu respectivo hash(MD5).
+\subsection{Exibindo conteúdo de arquivo}
+\subsection{Dividindo arquivo}
+\subsection{Editando arquivo}
+\subsection{Compactando diretórios}
 
 
 %%
@@ -58,12 +84,25 @@
 \subsection{Verificando os serviços da máquina}
 \subsection{Realizando download de conteúdo web}
 \subsection{Realizando requisição HTTP}
+\subsection{Analizando trafego de rede por aplicação}
 
 %%
 \section{Sistema}
 \subsection{Exibindo uso de RAM}
 \subsection{Exibindo partições e espaço em disco}
+\subsection{Exibindo a data do sistema}
+\subsection{Alterando a data do sistema}
+\subsection{Exibindo versão do kernel e do sistema}
+\subsection{Reiniciando a máquina}
+\subsection{Listando dispositivos PCI}
+\subsection{Exibindo usuários logado na máquina}
+\subsection{Habilitando sudo}
+
+\section{Diversos}
+\subsection{Exibindo histórico de comandos}
+\subsection{Executando comando do histórico}
 
 
 
+\end{multicols}
 \end{document}
