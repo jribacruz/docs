@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
+
+
+	<!-- LEFT BODY -->
+	<ui:define name="left.body">
+		<ui:include src="/view/usuarioPage/departamentoTree.xhtml" />
+	</ui:define>
+
+	<!-- LEFT FOOTER -->
+	<ui:define name="left.footer">
+	</ui:define>
+
+	<!-- CENTER TOOLBAR LEFT -->
+	<ui:define name="center.toolbar.left">
+	</ui:define>
+
+	<!-- CENTER TOOLBAR RIGHT -->
+	<ui:define name="center.toolbar.right">
+		<p:button value="Imprimir Relatorio" action="documentoReportMB.print" ajax="false">
+	</ui:define>
+
+	<!-- CENTER DETAIL -->
+	<ui:define name="center.detail">
+	</ui:define>
+
+	<!-- CENTER BODY -->
+	<ui:define name="center.body">
+		<ui:include src="/view/usuarioPage/usuarioList.xhtml" />
+	</ui:define>
+
+	<!-- DOCUMENT BODY -->
+	<ui:define name="document.body">
+		<ui:include src="/view/usuarioPage/usuarioEditDialog.xhtml" />
+	</ui:define>
+
+</ui:composition>

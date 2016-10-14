@@ -1,0 +1,191 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[a4paper,9pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl} 
+\usepackage{geometry}
+\geometry{margin=.5in}
+
+\usepackage{multicol}
+\usepackage{pdflscape}
+
+
+%%Cria os índices
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=blue}
+\usepackage{hypcap} 
+
+\usepackage{listings}
+
+%%Configuração das seções
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{Red}\normalfont\Large\bfseries}
+{\color{Red}\thesection}{1em}{}
+
+
+
+\begin{document}
+\title{Guia Linux - Linha de Comando}
+\author{José Ribamar Monteiro da Cruz}
+\maketitle
+\tableofcontents
+
+
+
+%\begin{landscape}
+\begin{multicols}{2}
+%%
+\section{Gerenciamento de Pacotes}
+\subsection{Configurando proxy}
+\subsection{Atualizando lista de pacotes}
+\subsection{Buscando pacotes}
+\subsection{Instalando pacotes}
+\subsection{Listando pacotes instalados}
+\subsection{Exibindo informações de pacote}
+\subsection{Removendo pacote}
+ 
+%%
+\section{Arquivos e Diretórios}
+\subsection{Exibindo diretório atual}
+
+	\fbox{\texttt{\$ pwd}}
+	
+\subsection{Listando arquivos de um diretório}
+	
+	\paragraph{\fbox{\texttt{\$ ls -l}}}
+	\paragraph{\fbox{\texttt{\$ ls -la}}} \emph{Inclui arquivos ocultos.}
+	
+	
+\subsection{Navegando entre diretórios}
+
+	\fbox{\texttt{\$ cd \emph{/DIR-DEST} }}
+	
+\subsection{Criando diretório}
+
+	\fbox{\texttt{\$ mkdir \emph{NOME-DIR}}}
+
+\subsection{Removendo diretório}
+\subsection{Criando arquivo}
+	
+	\fbox{\texttt{\$ touch \emph{ARQ.xxx}}}
+	
+\subsection{Removendo arquivo}
+\subsection{Copiando arquivo} 
+\subsubsection{Mesmo host}
+	
+	\fbox{\texttt{\$ cp \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST}}}
+	
+\subsubsection{Entre hosts diferentes}
+	
+	\fbox{\texttt{\$ scp \emph{/DIR-ORIGEM/ARQ.xxx USER@IP:/DIR-DEST}}}
+
+\subsection{Movendo arquivo} 
+	
+
+   \fbox{\texttt{\$ mv \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST}}}
+
+\subsection{Renomeando arquivo}
+
+ 	\fbox{\texttt{\$ mv \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST/NOVO-ARQ.xxx}}}
+ 	
+
+\subsection{Exibindo espaço utilizado em diretório}
+	
+	\paragraph{\fbox{\texttt{\$ du -sh }}} \emph{Formato sumarizado.}
+	\paragraph{\fbox{\texttt{\$ du -ah }}} \emph{Formato por arquivo e diretório.}
+	
+\subsection{Alterando proprietário de arquivo}
+
+	\fbox{\texttt{\$ chown \emph{USER}:\emph{GROUP} \emph{ARQ.xxx}}}
+	
+\subsection{Alterando permissões de arquivo}
+
+	\paragraph{\fbox{\texttt{\$ chmod 755 \emph{ARQ.xxx}}}} \emph{Todos os privilégios ao usuário.}
+	
+\subsection{Busca de arquivo em diretório}
+\subsection{Verificando o charset e mime de arquivo}
+	
+	\fbox{\texttt{\$ file -bi}}
+		
+\subsection{Calculando o hash (MD5) de um arquivo}
+
+	\paragraph{\fbox{\texttt{\$ md5sum \emph{ARQ.xxx}}}}
+	
+\subsection{Exibindo conteúdo de arquivo}
+\subsection{Dividindo arquivo}
+\subsection{Editando arquivo}
+\subsection{Compactando diretórios}
+	
+	\fbox{\texttt{\$ zip -r \emph{ARQUIVO.zip /DIR-A-SER-ZIPADO}}}
+	
+
+%%
+\section{Processos}
+\subsection{Listando processos}
+	
+	\paragraph{\fbox{\texttt{\$ ps -aux }}} \emph{A segunda coluna é o PID do processo.} 
+	
+\subsection{Matando processo}
+	\fbox{\texttt{\$ kill -9 \emph{PID-DO-PROCESSO}}}
+%
+\section{Rede}
+\subsection{Verificando o IP e MAC da máquina}
+
+	\fbox{\texttt{\$ sudo ifconfig}}
+	
+\subsection{Verificando os serviços da máquina}
+	
+	\fbox{\texttt{\$ netstat -ant}}
+
+\subsection{Realizando download de conteúdo web}
+	 
+	\fbox{\texttt{\$ wget \emph{http://context:port/conteudo-a-ser-baixado.xxx}}}
+	
+\subsection{Realizando requisição HTTP}
+\subsection{Analizando trafego de rede por aplicação}
+
+%%
+\section{Sistema}
+\subsection{Exibindo uso de RAM}
+	
+	\fbox{\texttt{\$ free -h}}
+	
+\subsection{Exibindo partições e espaço em disco}
+	
+	\fbox{\texttt{\$ df -h}}
+
+\subsection{Exibindo a data do sistema}
+	
+	\fbox{\texttt{\$ date}}
+	
+\subsection{Alterando a data do sistema}
+\subsection{Exibindo versão do kernel e do sistema}
+	
+	\fbox{\texttt{\$ uname -a}}
+	
+\subsection{Reiniciando a máquina}
+	
+	\fbox{\texttt{\$ sudo reboot}}
+	
+\subsection{Listando dispositivos PCI}
+	
+	\fbox{\texttt{\$ lspci}}
+	
+\subsection{Exibindo usuários logado na máquina}
+
+	\fbox{\texttt{\$ w}}
+	
+\subsection{Exibindo histórico de comandos executados} 
+	
+	\paragraph{\fbox{\texttt{\$ history}}} \emph{A primeiro coluna é o número do histórico.}
+	
+\subsection{Executando comando do histórico}
+
+	\fbox{\texttt{\$ !\emph{NUMERO-DO-HISTORICO}}}
+
+
+\end{multicols}
+%\end{landscape}
+\end{document}
