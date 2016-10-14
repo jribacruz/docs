@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Fri Oct 14 14:59:29 BRT 2016
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=document.tex
+outputFile=guia-linux-command-line.pdf
+langSpell=br
+markDer=true
+srcDir=
