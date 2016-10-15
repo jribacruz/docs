@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \renewcommand*\rmdefault{ppl} 
 \usepackage{geometry}
-\geometry{margin=.5in}
+\geometry{margin=.4in}
 
 \usepackage{multicol}
 \usepackage{pdflscape}
@@ -15,7 +15,7 @@
 \hypersetup{colorlinks=true,allcolors=blue}
 \usepackage{hypcap} 
 
-\usepackage{listings}
+\usepackage{listings} 
 
 %%Configuração das seções
 \usepackage[dvipsnames]{xcolor}
@@ -27,7 +27,7 @@
 
 
 \begin{document}
-\title{Guia Linux - Linha de Comando}
+\title{Guia Linux / Conceitos e Comandos}
 \author{José Ribamar Monteiro da Cruz}
 \maketitle
 \tableofcontents
@@ -39,13 +39,49 @@
 %%
 \section{Gerenciamento de Pacotes}
 \subsection{Configurando proxy}
-\subsection{Atualizando lista de pacotes}
+	Abrir o arquivo para edição. Criar caso não exista.
+	
+	\paragraph{\fbox{\texttt{\$ sudo nano /etc/dnf/dnf.conf}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ sudo nano /etc/apt/apt.conf}}} \emph{Debian/Ubuntu} \newline
+	
+	\noindent Inserir as seguintes informações e salvar arquivo.
+	
+	\paragraph{\fbox{\texttt{Acquire::http::Proxy "http://\emph{USUARIO}:\emph{SENHA}@\emph{IP}:\emph{PORTA}";}}} \emph{Debian/Ubuntu}
+	
+	
+\subsection{Atualizando pacotes}
+	
+	\paragraph{\fbox{\texttt{\$ sudo dnf update}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ sudo apt-get upgrade}}} \emph{Debian/Ubuntu}
+	
 \subsection{Buscando pacotes}
+	
+	\paragraph{\fbox{\texttt{\$ dnf search \emph{NOME-DO-PACOTE}}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ apt-cache search \emph{NOME-DO-PACOTE}}}} \emph{Debian/Ubuntu}
+	
 \subsection{Instalando pacotes}
+
+	\paragraph{\fbox{\texttt{\$ sudo dnf install \emph{NOME-DO-PACOTE}}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ sudo apt-get install \emph{NOME-DO-PACOTE}}}} \emph{Debian/Ubuntu}
+	
 \subsection{Listando pacotes instalados}
+	
+	\paragraph{\fbox{\texttt{\$ dnf list}}} \emph{Fedora}
+	
 \subsection{Exibindo informações de pacote}
+	
+	\paragraph{\fbox{\texttt{\$ dnf info \emph{NOME-DO-PACOTE}}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ apt-cache show \emph{NOME-DO-PACOTE}}}} \emph{Debian/Ubuntu}
+	
 \subsection{Removendo pacote}
- 
+	\paragraph{\fbox{\texttt{\$ sudo dnf remove \emph{NOME-DO-PACOTE}}}} \emph{Fedora}
+	
+	\paragraph{\fbox{\texttt{\$ sudo apt-get remove \emph{NOME-DO-PACOTE}}}} \emph{Debian/Ubuntu}
 %%
 \section{Arquivos e Diretórios}
 \subsection{Exibindo diretório atual}
@@ -56,39 +92,52 @@
 	
 	\paragraph{\fbox{\texttt{\$ ls -l}}}
 	\paragraph{\fbox{\texttt{\$ ls -la}}} \emph{Inclui arquivos ocultos.}
+	\paragraph{\fbox{\texttt{\$ ls -l abc*}}} \emph{Arquivos que iniciam com abc.}
+	\paragraph{\fbox{\texttt{\$ ls -l *.log}}} \emph{Arquivos com extensão log.}
 	
 	
 \subsection{Navegando entre diretórios}
 
-	\fbox{\texttt{\$ cd \emph{/DIR-DEST} }}
+	\paragraph{\fbox{\texttt{\$ cd \emph{/DIR-DEST} }}}
+	\paragraph{\fbox{\texttt{\$ cd \~}}} \emph{Vai para home do usuário logado.}
+	\paragraph{\fbox{\texttt{\$ cd ..}}} \emph{Retorna para diretório pai.}
+	
 	
 \subsection{Criando diretório}
 
 	\fbox{\texttt{\$ mkdir \emph{NOME-DIR}}}
 
 \subsection{Removendo diretório}
+
+	\fbox{\texttt{\$ rmdir \emph{NOME-DIR}}}
+	
 \subsection{Criando arquivo}
 	
-	\fbox{\texttt{\$ touch \emph{ARQ.xxx}}}
+	\fbox{\texttt{\$ touch \emph{/DIR/ARQ.xxx}}}
 	
 \subsection{Removendo arquivo}
-\subsection{Copiando arquivo} 
+	
+	\paragraph{\fbox{\texttt{\$ rm /DIR/ARQ.xxx}}}
+	
+\subsection{Cópia de arquivos e diretórios} 
 \subsubsection{Mesmo host}
 	
-	\fbox{\texttt{\$ cp \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST}}}
+	\paragraph{\fbox{\texttt{\$ cp \emph{/DIR-ORIG/ARQ.xxx /DIR-DEST}}}}
+	
+	
+	\paragraph{\fbox{\texttt{\$ cp -R \emph{/DIR-ORIG/ /DIR-DEST}}}} \emph{Todo conteúdo do diretório.} 
 	
 \subsubsection{Entre hosts diferentes}
 	
-	\fbox{\texttt{\$ scp \emph{/DIR-ORIGEM/ARQ.xxx USER@IP:/DIR-DEST}}}
+	\fbox{\texttt{\$ scp \emph{/DIR-ORIG/ARQ.xxx USER@IP:/DIR-DEST}}}
 
 \subsection{Movendo arquivo} 
-	
 
-   \fbox{\texttt{\$ mv \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST}}}
+   \fbox{\texttt{\$ mv \emph{/DIR-ORIG/ARQ.xxx /DIR-DEST}}}
 
 \subsection{Renomeando arquivo}
 
- 	\fbox{\texttt{\$ mv \emph{/DIR-ORIGEM/ARQ.xxx /DIR-DEST/NOVO-ARQ.xxx}}}
+ 	\fbox{\texttt{\$ mv \emph{/DIR-ORIG/ARQ.xxx /DIR-DEST/NOVO-ARQ.xxx}}}
  	
 
 \subsection{Exibindo espaço utilizado em diretório}
@@ -102,24 +151,50 @@
 	
 \subsection{Alterando permissões de arquivo}
 
-	\paragraph{\fbox{\texttt{\$ chmod 755 \emph{ARQ.xxx}}}} \emph{Todos os privilégios ao usuário.}
+	\paragraph{\fbox{\texttt{\$ chmod 755 \emph{/DIR/ARQ.xxx}}}} \emph{Todos os privilégios ao usuário.}
+	
+	\paragraph{\fbox{\texttt{\$ chmod +x \emph{/DIR/ARQ.xxx}}}} \emph{Permissão de execução.}
+
+\subsection{Editando arquivo}
+	
+	\paragraph{\fbox{\texttt{\$ vi \emph{/DIR/ARQ.xxx}}}} \emph{Editor vi. Tecla i para modo de edição.}
+	
+	\paragraph{\fbox{\texttt{\$ nano \emph{/DIR/ARQ.xxx}}}} \emph{Editor nano.}
+
+\subsection{Salvando edição em arquivo} 
+	
+	\paragraph{\fbox{\texttt{\emph{ESC} + :wq}}} \emph{Editor vi. Salva e sai do editor.}
+	
+	\paragraph{\fbox{\texttt{\emph{ESC} + :q}}} \emph{Editor vi. Sai sem salvar.}
+	
+	\paragraph{\fbox{\texttt{\emph{CTRL+X} + s + ENTER}}} \emph{Editor nano. Salva e sai do editor.}
+	
+	\paragraph{\fbox{\texttt{\emph{CTRL+X} + n}}} \emph{Editor nano. Sai sem salvar.}
 	
 \subsection{Busca de arquivo em diretório}
 \subsection{Verificando o charset e mime de arquivo}
 	
-	\fbox{\texttt{\$ file -bi}}
+	\fbox{\texttt{\$ file -bi \emph{/DIR/ARQ.xxx}}}
 		
 \subsection{Calculando o hash (MD5) de um arquivo}
 
-	\paragraph{\fbox{\texttt{\$ md5sum \emph{ARQ.xxx}}}}
+	\paragraph{\fbox{\texttt{\$ md5sum \emph{/DIR/ARQ.xxx}}}}
 	
 \subsection{Exibindo conteúdo de arquivo}
 \subsection{Dividindo arquivo}
-\subsection{Editando arquivo}
+
+
+\subsection{Contando número de linhas de arquivo}
+	
+	\paragraph{\fbox{\texttt{\$ wc \emph{/DIR/ARQ.xxx}}}} \emph{Nº de linhas na 1ª coluna.}
+	
 \subsection{Compactando diretórios}
 	
 	\fbox{\texttt{\$ zip -r \emph{ARQUIVO.zip /DIR-A-SER-ZIPADO}}}
+
+\subsection{Descompactando arquivos zipados}
 	
+	\fbox{\texttt{\$ unzip \emph{ARQUIVO.zip}}} \emph{Descompacta no diretório atual.}
 
 %%
 \section{Processos}
@@ -141,7 +216,7 @@
 
 \subsection{Realizando download de conteúdo web}
 	 
-	\fbox{\texttt{\$ wget \emph{http://context:port/conteudo-a-ser-baixado.xxx}}}
+	\fbox{\texttt{\$ wget \emph{http://ENDERECO-WEB/conteudo-a-ser-baixado.xxx}}}
 	
 \subsection{Realizando requisição HTTP}
 \subsection{Analizando trafego de rede por aplicação}
@@ -161,6 +236,9 @@
 	\fbox{\texttt{\$ date}}
 	
 \subsection{Alterando a data do sistema}
+	
+	\fbox{\texttt{\$ sudo date -s "yyyy-MM-dd HH:mm:ss"}}
+	
 \subsection{Exibindo versão do kernel e do sistema}
 	
 	\fbox{\texttt{\$ uname -a}}
