@@ -90,7 +90,7 @@
 	
 \subsection{Listando arquivos de um diretório}
 	
-	\paragraph{\fbox{\texttt{\$ ls -l}}}
+	\paragraph{\fbox{\texttt{\$ ls -l}}} \emph{1ª coluna são os conjuntos de permissões.}
 	\paragraph{\fbox{\texttt{\$ ls -la}}} \emph{Inclui arquivos ocultos.}
 	\paragraph{\fbox{\texttt{\$ ls -l abc*}}} \emph{Arquivos que iniciam com abc.}
 	\paragraph{\fbox{\texttt{\$ ls -l *.log}}} \emph{Arquivos com extensão log.}
@@ -172,6 +172,11 @@
 	\paragraph{\fbox{\texttt{\emph{CTRL+X} + n}}} \emph{Editor nano. Sai sem salvar.}
 	
 \subsection{Busca de arquivo em diretório}
+	
+	\paragraph{\fbox{\texttt{\$ find . -name \emph{ARQ.xxx}}}} \emph{Busca por ARQ.xxx no diretório atual.}
+	
+	\paragraph{\fbox{\texttt{\$ find /home -name \emph{ARQ.xxx}}}} \emph{Busca por ARQ.xxx em /home.}
+	
 \subsection{Verificando o charset e mime de arquivo}
 	
 	\fbox{\texttt{\$ file -bi \emph{/DIR/ARQ.xxx}}}
@@ -188,14 +193,14 @@
 	
 	\paragraph{\fbox{\texttt{\$ wc \emph{/DIR/ARQ.xxx}}}} \emph{Nº de linhas na 1ª coluna.}
 	
-\subsection{Compactando diretórios}
+\subsection{Compactando diretórios (zip)}
 	
 	\fbox{\texttt{\$ zip -r \emph{ARQUIVO.zip /DIR-A-SER-ZIPADO}}}
 
 \subsection{Descompactando arquivos zipados}
 	
 	\fbox{\texttt{\$ unzip \emph{ARQUIVO.zip}}} \emph{Descompacta no diretório atual.}
-
+l
 %%
 \section{Processos}
 \subsection{Listando processos}
