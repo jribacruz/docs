@@ -47,7 +47,9 @@
 	
 	\noindent Inserir as seguintes informações e salvar arquivo.
 	
-	\paragraph{\fbox{\texttt{Acquire::http::Proxy "http://\emph{USUARIO}:\emph{SENHA}@\emph{IP}:\emph{PORTA}";}}} \emph{Debian/Ubuntu}
+	\paragraph{\fbox{\texttt{proxy=\emph{IP}}}} \emph{Fedora}
+
+	\paragraph{\fbox{\texttt{Acquire::http::Proxy "http://\emph{IP}:\emph{PORTA}";}}} \emph{Debian/Ubuntu}
 	
 	
 \subsection{Atualizando pacotes}
@@ -123,8 +125,6 @@
 \subsubsection{Mesmo host}
 	
 	\paragraph{\fbox{\texttt{\$ cp \emph{/DIR-ORIG/ARQ.xxx /DIR-DEST}}}}
-	
-	
 	\paragraph{\fbox{\texttt{\$ cp -R \emph{/DIR-ORIG/ /DIR-DEST}}}} \emph{Todo conteúdo do diretório.} 
 	
 \subsubsection{Entre hosts diferentes}
@@ -145,30 +145,28 @@
 	\paragraph{\fbox{\texttt{\$ du -sh }}} \emph{Formato sumarizado.}
 	\paragraph{\fbox{\texttt{\$ du -ah }}} \emph{Formato por arquivo e diretório.}
 	
-\subsection{Alterando proprietário de arquivo}
+\subsection{Alterando proprietário de arquivos e diretórios}
 
-	\fbox{\texttt{\$ chown \emph{USER}:\emph{GROUP} \emph{ARQ.xxx}}}
+	\paragraph{\fbox{\texttt{\$ chown \emph{USER}:\emph{GROUP} \emph{/DIR/ARQ.xxx}}}}
 	
-\subsection{Alterando permissões de arquivo}
+	\paragraph{\fbox{\texttt{\$ chown -R \emph{USER}:\emph{GROUP} \emph{/DIR}}}} \emph{Em todos arquivos do diretório.}
+	
+\subsection{Alterando permissões de arquivos e diretórios}
 
 	\paragraph{\fbox{\texttt{\$ chmod 755 \emph{/DIR/ARQ.xxx}}}} \emph{Todos os privilégios ao usuário.}
-	
+	\paragraph{\fbox{\texttt{\$ chmod -R 755 \emph{/DIR/}}}} \emph{Em todos arquivos do diretório.}
 	\paragraph{\fbox{\texttt{\$ chmod +x \emph{/DIR/ARQ.xxx}}}} \emph{Permissão de execução.}
 
 \subsection{Editando arquivo}
 	
 	\paragraph{\fbox{\texttt{\$ vi \emph{/DIR/ARQ.xxx}}}} \emph{Editor vi. Tecla i para modo de edição.}
-	
 	\paragraph{\fbox{\texttt{\$ nano \emph{/DIR/ARQ.xxx}}}} \emph{Editor nano.}
 
 \subsection{Salvando edição em arquivo} 
 	
 	\paragraph{\fbox{\texttt{\emph{ESC} + :wq}}} \emph{Editor vi. Salva e sai do editor.}
-	
 	\paragraph{\fbox{\texttt{\emph{ESC} + :q}}} \emph{Editor vi. Sai sem salvar.}
-	
 	\paragraph{\fbox{\texttt{\emph{CTRL+X} + s + ENTER}}} \emph{Editor nano. Salva e sai do editor.}
-	
 	\paragraph{\fbox{\texttt{\emph{CTRL+X} + n}}} \emph{Editor nano. Sai sem salvar.}
 	
 \subsection{Busca de arquivo em diretório}
@@ -186,8 +184,14 @@
 	\paragraph{\fbox{\texttt{\$ md5sum \emph{/DIR/ARQ.xxx}}}}
 	
 \subsection{Exibindo conteúdo de arquivo}
-\subsection{Dividindo arquivo}
 
+	\paragraph{\fbox{\texttt{\$ cat \emph{/DIR/ARQ.xxx}}}}
+	
+	\paragraph{\fbox{\texttt{\$ cat \emph{/DIR/ARQ.xxx} | more}}} \emph{Com paginação.}
+	
+	\paragraph{\fbox{\texttt{\$ tail -n 100 \emph{/DIR/ARQ.xxx}}}} \emph{100 últimas linhas.}
+	
+	\paragraph{\fbox{\texttt{\$ tail -f \emph{/DIR/ARQ.xxx}}}} \emph{Exibição em tempo real.}
 
 \subsection{Contando número de linhas de arquivo}
 	
@@ -197,15 +201,20 @@
 	
 	\fbox{\texttt{\$ zip -r \emph{ARQUIVO.zip /DIR-A-SER-ZIPADO}}}
 
-\subsection{Descompactando arquivos zipados}
+\subsection{Descompactando arquivos (zip)}
 	
 	\fbox{\texttt{\$ unzip \emph{ARQUIVO.zip}}} \emph{Descompacta no diretório atual.}
-l
+	
+\subsection{Descompactando arquivos (tar)}
+	
+	\fbox{\texttt{\$ tar -xvf \emph{ARQUIVO.tar}}} \emph{Descompacta no diretório atual.}
 %%
 \section{Processos}
 \subsection{Listando processos}
 	
 	\paragraph{\fbox{\texttt{\$ ps -aux }}} \emph{A segunda coluna é o PID do processo.} 
+	
+	\paragraph{\fbox{\texttt{\$ ps -aux | grep \emph{NAME} }}} \emph{Filtrando saída.} 
 	
 \subsection{Matando processo}
 	\fbox{\texttt{\$ kill -9 \emph{PID-DO-PROCESSO}}}
@@ -224,8 +233,11 @@ l
 	\fbox{\texttt{\$ wget \emph{http://ENDERECO-WEB/conteudo-a-ser-baixado.xxx}}}
 	
 \subsection{Realizando requisição HTTP}
-\subsection{Analizando trafego de rede por aplicação}
-
+	
+	\paragraph{\fbox{\texttt{\$ curl http://ENDERECO-WEB/ }}} \emph{GET} 
+	
+	\paragraph{\fbox{\texttt{\$ curl http://ENDERECO-WEB/ -X POST }}} \emph{POST} 
+	
 %%
 \section{Sistema}
 \subsection{Exibindo uso de RAM}
